@@ -1,25 +1,40 @@
-console.log(data)
+console.log(data.results.length)
 
-let recipeTable = document.getElementById("tbody");
+const recipies = data.results
 
-for (i = 0; i < data.length; i++) {
-    let tr = document.createElement("tr");
-    recipeTable.appendChild(tr);
-}
+let recipeT = document.getElementById("dataT");
 
-for (let i = 0; i < data.length; i++) {
+// for (i = 0; i < recipies.length; i++) {
+//     let tr = document.createElement("tr");
+//     recipeT.appendChild(tr);
+// }
+
+
+
+function createTable() {
+  
+
+  for (let i = 0; i < recipies.length; i++) {
   let tr = document.createElement("tr");
 
   let td1 = document.createElement("td");
   td1.innerHTML = "Nr. " + (i + 1);
   let td2 = document.createElement("td");
-  td2.innerHTML = data[i].title;
+  td2.innerHTML = recipies[i].title;
   let td3 = document.createElement("td");
-  td3.innerHTML = data[i].image;
+  td3.innerHTML = recipies[i].image;
 
   tr.appendChild(td1);
   tr.appendChild(td2);
   tr.appendChild(td3);
 
-  recipeTable.appendChild(tr);
+  recipeT.appendChild(tr);
+}
+}
+
+createTable()
+
+
+function moreDetails() {
+  
 }

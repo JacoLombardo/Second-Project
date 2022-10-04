@@ -1,0 +1,40 @@
+body{
+    background-color: lightgreen;
+}
+
+/* Collapse text */
+.btnS {
+    float: right;
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.btnS:focus {
+    outline: none;
+}
+
+.btnS:after {
+    content: "Less";
+    float: right;
+    margin-left: 3px;
+}
+
+.btnS.collapsed:after {
+    content: "More";
+}
+
+/* h1 */
+.flex-container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*  */

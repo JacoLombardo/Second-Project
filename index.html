@@ -5,12 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: green;">
-        <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -18,16 +19,16 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.html" style="color: white">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="recipes.html">Recipes</a>
+                    <a class="nav-link" href="recipes.html" style="color: white">Recipes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="terza.html">Terza</a>
+                    <a class="nav-link" href="terza.html" style="color: white">Terza</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" style="color: white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         Dropdown link
                     </a>
@@ -41,9 +42,70 @@
         </div>
     </nav>
 
+
+
+
+    <div class="container">
+        <h1 class="flex-container">Get A Recipe</h1>
+        <p>Welcome on Get A Recipe! On this site you'll be able to quickly get access to recipes, according to your needs.
+        It's time to start thinking about your next website! This time the goal will be to use JavaScript to make your pages
+        more interactive. Again the content is up to you.
+        
+        Since you will be using live data, first check this list of Free APIs. Choose your topic based on what you can find
+        there.
+        
+        Start by testing some endpoints
+        Before starting to write any code or decide how the website is going to look like, it's important to understand how the
+        API of your choice works. Read carefully the documentation and use Postman to test the endpoints you want to use.
+        
+        Think of a design
+        In this module you will use Bootstrap to design your pages therefore you should not spend too much time on it. However
+        is always useful to have a simple mockup of the features you want to include from the beginning.</p>
+
+        <div id="boom" class="collapse">
+                <p>It's time to start thinking about your next website! This time the goal will be to use JavaScript to make your pages
+                more interactive. Again the content is up to you.
+                
+                Since you will be using live data, first check this list of Free APIs. Choose your topic based on what you can find
+                there.
+                
+                Start by testing some endpoints
+                Before starting to write any code or decide how the website is going to look like, it's important to understand how the
+                API of your choice works. Read carefully the documentation and use Postman to test the endpoints you want to use.
+                
+                Think of a design
+                In this module you will use Bootstrap to design your pages therefore you should not spend too much time on it. However
+                is always useful to have a simple mockup of the features you want to include from the beginning.</p>
+        </div>
+        <button type="button" class="btnS" data-toggle="collapse" data-target="#boom">Show</button><br><br>
+    </div>
+
+    <div class="flex-container">
+        <h1>Try our random recipe option!</h1>
+        <button type="button" class="btn btn-primary btn-lg" style="background-color: green">Random Recipe</button>
+        <div><p>Here it will appear the recipe</p></div>
+    </div>
+
+    <br><br><br><br><br>
+
+    <footer class="bg-light text-center text-white">
+        <div class="container p-4 pb-0">
+            <section class="mb-4">
+                <a class="btn text-white btn-floating m-1" style="background-color: #ac2bac;" href="#!" role="button"><i
+                        class="fa fa-instagram"></i></a>
     
+                <a class="btn text-white btn-floating m-1" style="background-color: #0082ca;" href="#!" role="button"><i
+                        class="fa fa-linkedin"></i></a>
 
+                <a class="btn text-white btn-floating m-1" style="background-color: #333333;" href="#!" role="button"><i
+                        class="fa fa-github"></i></a>
+            </section>
+        </div>
 
+        <div class="text-center p-3" style="background-color: green">
+            <a>© 2020 Copyright: Get A Recipe Inc.</a>
+        </div>
+    </footer>
 
     <script src="data.js"></script>
     <script src="main.js"></script>
