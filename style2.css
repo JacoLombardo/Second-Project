@@ -1,0 +1,23 @@
+#dataT{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px 20px;
+    border-top: 30px;
+}
+
+.card{
+    border: 7px bold black;
+}
+
+h1{
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+
+.card-title{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size:larger;
+    font-weight: bold;
+}

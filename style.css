@@ -1,5 +1,6 @@
 body{
-    background-color: lightgreen;
+    background-image: url(Images/Marble.jpg);
+    background-size: 100%;
 }
 
 /* Collapse text */

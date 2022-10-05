@@ -1,40 +1,39 @@
-console.log(data.results.length)
+// normal recipes
 
-const recipies = data.results
+let recipes = data.results
 
-let recipeT = document.getElementById("dataT");
+let recipeDiv = document.getElementById("dataT");
 
-// for (i = 0; i < recipies.length; i++) {
-//     let tr = document.createElement("tr");
-//     recipeT.appendChild(tr);
-// }
+for (let i = 0; i < recipes.length; i++) {
+  let recipeArr = recipes[i].title.split(/[ ,]+/)
+  recipeArr.push(recipes[i].id)
+  let recipeString =  "https://spoonacular.com/"+ recipeArr.join("-")
 
+  let recipeCard = document.createElement("div");
+  recipeCard.classList.add("card");
+  recipeCard.setAttribute("style", "width: 18rem; border: 2px solid black;");
 
+  let img = document.createElement("img");
+  img.setAttribute("src", recipes[i].image);
+  img.setAttribute("alt", recipes[i].title);
+  img.classList.add("img-card-top");
 
-function createTable() {
-  
+  let cardBody = document.createElement("div");
+  cardBody.classList.add("card-body");
 
-  for (let i = 0; i < recipies.length; i++) {
-  let tr = document.createElement("tr");
+  let h1 = document.createElement("h1");
+  h1.classList.add("card-title");
+  h1.innerText = recipes[i].title;
 
-  let td1 = document.createElement("td");
-  td1.innerHTML = "Nr. " + (i + 1);
-  let td2 = document.createElement("td");
-  td2.innerHTML = recipies[i].title;
-  let td3 = document.createElement("td");
-  td3.innerHTML = recipies[i].image;
+  let a = document.createElement("a");
+  a.classList.add("card-text");
+  a.innerText = "ID " + recipes[i].id;
+  a.setAttribute("href", recipeString)
 
-  tr.appendChild(td1);
-  tr.appendChild(td2);
-  tr.appendChild(td3);
-
-  recipeT.appendChild(tr);
-}
-}
-
-createTable()
-
-
-function moreDetails() {
-  
+  recipeCard.appendChild(img);
+  recipeCard.appendChild(cardBody);
+  cardBody.appendChild(a);
+  cardBody.appendChild(h1);
+    
+  recipeDiv.appendChild(recipeCard);
 }
