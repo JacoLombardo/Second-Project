@@ -6,13 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipes</title>
     <link rel="stylesheet" href="style2.css">
+    <link rel="icon" type="image/x-icon" href="Images/watermelon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style>
-        body {
-    background-color: darkseagreen;
-}
-    </style>
 </head>
 
 <body>
@@ -46,6 +43,75 @@
             </ul>
         </div>
     </nav>
+
+    <div class="container mt-4">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-9">
+                <div class="card p-4 mt-3">
+                    <h3 class="heading mt-5 text-center">How would you like to search for your recipe?</h3>
+                    <div class="d-flex justify-content-center px-5" style="background-color: rgba(0, 0, 0, 0);">
+                        <div class="search"> <input type="text" class="search-input" placeholder="Search by name..." name=""> <a
+                                href="#" class="search-icon"> <i class="fa fa-search"></i> </a> </div>
+                    </div>
+                    <div class="row mt-4 g-1 px-4 mb-5 justify-content-space-between align-items-baseline background-color: rgba(0, 0, 0, 0);">
+                        <div class="col-md-2" style="background-color: rgba(0, 0, 0, 0);">
+                            <div class="card-inner p-3 d-flex flex-column align-items-center" style="background-color: rgba(0, 0, 0, 0);"> <img
+                                    src="Images/recipe-book.png" width="50">
+                                <div class="text-center mg-text"> <span class="mg-text">By name</span> </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2" style="background-color: rgba(0, 0, 0, 0);">
+                            <div class="card-inner p-3 d-flex flex-column align-items-center" style="background-color: rgba(0, 0, 0, 0);"> <img
+                                    src="Images/ingredients.png" width="50">
+                                <div class="text-center mg-text"> <span class="mg-text">By ingredients</span> </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2" style="background-color: rgba(0, 0, 0, 0);">
+                            <div class="card-inner p-3 d-flex flex-column align-items-center" style="background-color: rgba(0, 0, 0, 0);"> <img
+                                    src="Images/nutrients.png" width="50">
+                                <div class="text-center mg-text"> <span class="mg-text">By nutrients</span> </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2" style="background-color: rgba(0, 0, 0, 0);">
+                            <div class="card-inner p-3 d-flex flex-column align-items-center" style="background-color: rgba(0, 0, 0, 0);"> <img
+                                    src="Images/cuisine.png" width="50">
+                                <div class="text-center mg-text"> <span class="mg-text">By cuisine</span> </div>
+                            </div>
+                        </div>
+                        <div class="diet" style="background-color: rgba(0, 0, 0, 0);">
+                            <div class="d-flex flex-column align-items-center"> <img
+                                    src="Images/diet.png" width="50">
+                                <div class="text-center mg-text"> <span class="mg-text">By diet</span> </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <input type="radio" id="Omnivore" name="drone" value="Omnivore" checked>
+                                    <label for="Omnivore">Omnivore</label>
+                                </div>
+                                
+                                <div>
+                                    <input type="radio" id="Vegetarian" name="drone" value="Vegetarian">
+                                    <label for="Vegetarian">Vegetarian</label>
+                                </div>
+                                
+                                <div>
+                                    <input type="radio" id="Vegan" name="drone" value="Vegan">
+                                    <label for="Vegan">Vegan</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="Gluten-free" name="drone" value="Gluten-free">
+                                    <label for="Gluten-free">Gluten-free</label>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br>
 
     <div id="dataT"></div>
 
