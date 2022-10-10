@@ -150,3 +150,8 @@ div.card.p-4.mt-3{
     background-color: lightgreen;
 
 }
+
+div.card.p-4.mt-3:hover{
+    filter: none;
+
+}

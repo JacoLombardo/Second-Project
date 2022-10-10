@@ -28,17 +28,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="terza.html" style="color: white">Terza</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" style="color: white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Dropdown link
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
             </ul>
         </div>
     </nav>
@@ -83,8 +72,9 @@
 
     <div class="flex-container">
         <h1>Try our random recipe option!</h1>
-        <button type="button" class="btn btn-primary btn-lg" style="background-color: green">Random Recipe</button>
-        <div id="random-recipe"><p>Here</p></div>
+        <button type="button" id="random-button" onclick="fetchRandomRecipe()" class="btn btn-primary btn-lg" style="background-color: green">Random Recipe</button>
+        <br><br>
+        <div id="random-recipe"></div>
     </div>
 
     <br><br><br><br><br>
