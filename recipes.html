@@ -39,8 +39,16 @@
                 <div class="card p-4 mt-3">
                     <h3 class="heading mt-5 text-center">How would you like to search for your recipe?</h3>
                     <div class="d-flex justify-content-center px-5" style="background-color: rgba(0, 0, 0, 0);">
-                        <div class="search"> <input type="text" class="search-input" placeholder="Search by name..." name=""> <a
-                                href="#" class="search-icon"> <i class="fa fa-search"></i> </a> </div>
+                        <div class="tooltip"><img src="Images/info.png" width="10">
+                            <span class="tooltiptext">Tooltip text</span>
+                        </div>
+                        <div class="search" id="by-name"> <input type="text" class="search-input" id="by-name-search" placeholder="Search by name..." name=""> 
+                            <a href="#" onclick="filterByName(); return false;" class="search-icon"> <i class="fa fa-search"></i> </a> </div>
+                        <div class="search" id="by-ingredients"> <input type="text" class="search-input" id="by-ingredients-search" placeholder="Search by ingredients..." name=""> <a href="#" onclick="fetchByIngredients(); return false;"
+                                class="search-icon"> <i class="fa fa-search"></i> </a> </div>
+                        <div class="search" id="by-calories"> <input type="text" class="search-input" id="by-calories-search" placeholder="Search by calories..." name=""> <a href="#" onclick="fetchByCalories(); return false;"class="search-icon"> <i class="fa fa-search"></i> </a> </div>
+                        <div class="search" id="by-cuisine"> <input type="text" class="search-input" id="by-cuisine-search" placeholder="Search by cuisine..." name=""> <a href="#" onclick="fetchByCuisine(); return false;"
+                                class="search-icon"> <i class="fa fa-search"></i> </a> </div>
                     </div>
                     <div class="row mt-4 g-1 px-4 mb-5 justify-content-space-between align-items-baseline background-color: rgba(0, 0, 0, 0);">
                         <div class="col-md-2" style="background-color: rgba(0, 0, 0, 0);">
@@ -56,9 +64,9 @@
                             </div>
                         </div>
                         <div class="col-md-2" style="background-color: rgba(0, 0, 0, 0);">
-                            <div onclick="byNutrients()" class="card-inner p-3 d-flex flex-column align-items-center" style="background-color: rgba(0, 0, 0, 0);"> <img
-                                    src="Images/nutrients.png" width="50">
-                                <div class="text-center mg-text"> <span class="mg-text">By nutrients</span> </div>
+                            <div onclick="byCalories()" class="card-inner p-3 d-flex flex-column align-items-center" style="background-color: rgba(0, 0, 0, 0);"> <img
+                                    src="Images/calories.png" width="50">
+                                <div class="text-center mg-text"> <span class="mg-text">By calories</span> </div>
                             </div>
                         </div>
                         <div class="col-md-2" style="background-color: rgba(0, 0, 0, 0);">
@@ -72,23 +80,24 @@
                                     src="Images/diet.png" width="50">
                                 <div class="text-center mg-text"> <span class="mg-text">By diet</span> </div>
                             </div>
+                            <div></div>
                             <div>
                                 <div>
-                                    <input type="radio" id="Omnivore" name="drone" onclick="buttonFilters()" value="Omnivore" checked>
+                                    <input class="diets" type="radio" id="Omnivore" name="drone" value="Omnivore" checked>
                                     <label for="Omnivore">Omnivore</label>
                                 </div>
                                 
                                 <div>
-                                    <input type="radio" id="Vegetarian" name="drone" onclick="buttonFilters()" value="Vegetarian">
+                                    <input class="diets" type="radio" id="Vegetarian" name="drone" value="Vegetarian">
                                     <label for="Vegetarian">Vegetarian</label>
                                 </div>
                                 
                                 <div>
-                                    <input type="radio" id="Vegan" name="drone" onclick="buttonFilters()" value="Vegan">
+                                    <input  class="diets"type="radio" id="Vegan" name="drone" value="Vegan">
                                     <label for="Vegan">Vegan</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="gluten-free" onchange="buttonFilters()" name="drone" value="Gluten-free">
+                                    <input type="checkbox" id="gluten-free" name="drone" value="Gluten-free">
                                     <label for="Gluten-free">Gluten-free</label>
                                 </div>
                             </div>

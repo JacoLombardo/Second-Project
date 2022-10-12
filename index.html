@@ -36,7 +36,10 @@
 
 
     <div class="container">
-        <h1 class="flex-container">Get A Recipe</h1>
+        <br><br><br><br><br><br>
+        <h1 id="welcome-on">Welcome on</h1>
+        <h1 id="get-a-recipe">Get A Recipe!</h1>
+        <br><br>
         <p>Welcome on Get A Recipe! On this site you'll be able to quickly get access to recipes, according to your needs.
         It's time to start thinking about your next website! This time the goal will be to use JavaScript to make your pages
         more interactive. Again the content is up to you.
@@ -71,8 +74,38 @@
     </div>
 
     <div class="flex-container">
-        <h1>Try our random recipe option!</h1>
-        <button type="button" id="random-button" onclick="fetchRandomRecipe()" class="btn btn-primary btn-lg" style="background-color: green">Random Recipe</button>
+        <h2 style="text-align: center;">Get a random recipe now!</h1>
+        <div class="card p-4 mt-3">
+            <div>
+                <div>
+                    <input class="diets" type="radio" id="omnivore" name="drone" value="Omnivore" checked>
+                    <label for="Omnivore">Omnivore</label>
+                </div>
+            
+                <div>
+                    <input class="diets" type="radio" id="vegetarian" name="drone" value="Vegetarian">
+                    <label for="Vegetarian">Vegetarian</label>
+                </div>
+            
+                <div>
+                    <input class="diets" type="radio" id="vegan" name="drone" value="Vegan">
+                    <label for="Vegan">Vegan</label>
+                </div>
+            </div>
+            <div></div>
+            <button type="button" id="random-button" onclick="fetchRandomRecipe()" class="btn btn-primary btn-lg" style="background-color: green">Random Recipe</button>
+            <div></div>
+            <div>
+                <div>
+                    <input type="checkbox" id="gluten-free" name="drone" value="Gluten-free">
+                    <label for="Gluten-free">Gluten-free</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="dairy-free" name="drone" value="Dairy-free">
+                    <label for="Dairy-free">Dairy-free</label>
+                </div>
+            </div>
+        </div>
         <br><br>
         <div id="random-recipe"></div>
     </div>
