@@ -156,14 +156,7 @@ div.card.p-4.mt-3:hover{
 
 /* tooltips */
 
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-}
-
-
-.tooltip.tooltiptext {
+.tooltiptext {
     visibility: hidden;
     width: 120px;
     background-color: black;
@@ -171,13 +164,19 @@ div.card.p-4.mt-3:hover{
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
-
-    /* Position the tooltip text - see examples below! */
     position: absolute;
     z-index: 1;
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
+#tooltip1:hover .tooltiptext {
+    visibility: visible;
+}
+#tooltip2:hover .tooltiptext {
+    visibility: visible;
+}
+#tooltip3:hover .tooltiptext {
+    visibility: visible;
+}
+#tooltip4:hover .tooltiptext {
     visibility: visible;
 }

@@ -7,9 +7,13 @@ const key3 = "aa2f0763db3344c990249fa9ac70ba3f"
 ////// input
 
 let nameDiv = document.getElementById("by-name")
+let nameDiv2 = document.getElementById("tooltip1")
 let ingredientsDiv = document.getElementById("by-ingredients")
+let ingredientsDiv2 = document.getElementById("tooltip2")
 let caloriesDiv = document.getElementById("by-calories")
+let caloriesDiv2 = document.getElementById("tooltip3")
 let cuisineDiv = document.getElementById("by-cuisine")
+let cuisineDiv2 = document.getElementById("tooltip4")
 
 // by name
 
@@ -17,10 +21,20 @@ function byName() {
   console.log("by name search");
 
   nameDiv.style.display = "block"
+  nameDiv2.style.display = "block"
   ingredientsDiv.style.display = "none"
+  ingredientsDiv2.style.display = "none"
   caloriesDiv.style.display = "none"
+  caloriesDiv2.style.display = "none"
   cuisineDiv.style.display = "none"
-  
+  cuisineDiv2.style.display = "none"
+
+  nameDiv.addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+      filterByName()
+    }
+  })
+
   filterByName();
 }
 
@@ -29,6 +43,7 @@ byName();
 
 function filterByName() {
   let input = document.getElementById("by-name-search").value;
+
   let recipes = data.recipes;
 
   let a = input.split(" ");
@@ -38,18 +53,6 @@ function filterByName() {
   input = a.join(" ");
 
   recipes = recipes.filter((recipe) => { return recipe.title.includes(input) });
-
-  let vegetarianRecipes = recipes.filter((recipe) => { return recipe.vegetarian === true });
-  let veganRecipes = recipes.filter((recipe) => { return recipe.vegan === true });
-  let glutenFreeRecipes = recipes.filter((recipe) => { return recipe.glutenFree == true });
-  let dairyFreeRecipes = recipes.filter((recipe) => { return recipe.dairyFree == true });
-
-  let vegetarianGFRecipes = recipes.filter((recipe) => { return recipe.vegetarian === true && recipe.glutenFree == true });
-  let veganGFRecipes = recipes.filter((recipe) => { return recipe.vegan === true && recipe.glutenFree == true });
-  let omnivoreGlutenFreeDairyFreerecipes = recipes.filter((recipe) => { return recipe.glutenFree == true && recipe.dairyFree == true });
-  let vgetarianGlutenFreeDairyFreerecipes = recipes.filter((recipe) => { return recipe.vegetarian === true && recipe.glutenFree == true && recipe.dairyFree == true });
-  let veganGlutenFreeDairyFreerecipes = recipes.filter((recipe) => { return recipe.vegan === true && recipe.glutenFree == true && recipe.dairyFree == true });
-
 
   let glutenFreeCheckbox = document.getElementById("gluten-free")
     glutenFreeCheckbox.addEventListener("change", filterByName);
@@ -62,106 +65,39 @@ function filterByName() {
   let radioVegan = document.getElementById("Vegan")
     radioVegan.addEventListener("change", filterByName);
   
-  if (radioOmnivore.checked == true && glutenFreeCheckbox.checked == false) {
-    console.log("omnivore recipes");
-    recipes = recipes;
+  let radioButtonValue = document.querySelector('input[type="radio"]:checked').value
+
+  let filteredRecipes = ""
+
+  if (radioButtonValue == "omnivore") {
+    filteredRecipes = recipes
+  } else if (radioButtonValue == "vegetarian") {
+    filteredRecipes = recipes.filter((recipe) => { return recipe.vegetarian == true });
+  } else {
+    filteredRecipes = recipes.filter((recipe) => { return recipe.vegan == true });
   }
-  if (radioOmnivore.checked == true && glutenFreeCheckbox.checked == true) {
-    console.log("omnivore gluten free recipes");
-    recipes = glutenFreeRecipes;
+
+  if (dairyFreeCheckbox.checked == true || glutenFreeCheckbox.checked == true) {
+    let filteredRecipes2 = "";
+    if (dairyFreeCheckbox.checked == false && glutenFreeCheckbox.checked == true) {
+      filteredRecipes2 = recipes.filter((recipe) => { return recipe.glutenFree == true });
+    } else if (dairyFreeCheckbox.checked == true && glutenFreeCheckbox.checked == false) {
+      filteredRecipes2 = recipes.filter((recipe) => { return recipe.dairyFree == true });
+    } else {
+      filteredRecipes2 = recipes.filter((recipe) => { return recipe.glutenFree == true && recipe.dairyFree == true });
+    }
+    let commonRecipes = [];
+    for (let i = 0; i < filteredRecipes.length; i++) {
+      for (let j = 0; j < filteredRecipes2.length; j++) {
+        if (filteredRecipes[i].id == filteredRecipes2[j].id) {
+          commonRecipes.push(filteredRecipes[i]);
+        }
+      }
+    }
+    filteredRecipes = commonRecipes
   }
-  if (radioVegetarian.checked == true && glutenFreeCheckbox.checked == false) {
-    console.log("vegetarian recipes");
-    recipes = vegetarianRecipes;
-  }
-  if (radioVegetarian.checked == true && glutenFreeCheckbox.checked == true) {
-    console.log("vegetarian gluten free recipes");
-    recipes = vegetarianGFRecipes;
-  }
-  if (radioVegan.checked == true && glutenFreeCheckbox.checked == false) {
-    console.log("vegan recipes");
-    recipes = veganRecipes;
-  }
-  if (radioVegan.checked == true && glutenFreeCheckbox.checked == true) {
-    console.log("vegan gluten free recipes");
-    recipes = veganGFRecipes;
-  }
-  
-  
-  
-  // first try
-  
-  // let diet = "";
-  // let diet2 = "";
-  // let diet3 = "";
-  // let diet4 = "";
-  // let diet5 = "";
 
-
-  // if (radioOmnivore.checked == true) {
-  //   diet = "Omnivore";
-  // }
-  // if (glutenFreeCheckbox.checked == true) {
-  //   diet = "GlutenFree";
-  // }
-  // if (radioVegetarian.checked == true) {
-  //   diet2 = "Vegetarian";
-  // }
-  // if (radioVegan.checked == true) {
-  //   diet3 = "Vegan";
-  // }
-  // if (dairyFreeCheckbox.checked == true) {
-  //   diet4 = "DairyFree";
-  // }
-
-  // recipes = [(diet + diet2 + diet3 + diet4 + diet5)+"recipes"]
-  // console.log(recipes)
-
-  // second try
-
-  // let radioButtons = document.querySelectorAll('input[type="radio"]')
-  // let checkBoxes = document.querySelectorAll('input[type="checkbox"]')
-
-  // console.log(radioButtons)
-  // console.log(checkBoxes)
-
-  // for (i = 0; i < radioButtons.length; i++){
-  //   if (radioButtons[i].checked == true) {
-  //     if (radioButtons[i].defaultValue == "omnivore") {
-  //       recipes = recipes
-  //     } else {
-  //       console.log(radioButtons[i].defaultValue)
-  //       recipes = recipes.filter((recipe) => { return recipes.radioButtons[i].defaultValue == true});
-  //     }
-  //   }
-  // }
-
-  // console.log(recipes)
-
-  // if (checkBoxes.checked == true) {
-  //   for (i = 0; i < checkBoxes.length; i++){
-  //     if (checkBoxes[i].checked == true) {
-  //       let recipes2 = recipes.filter((recipe) => { return recipe.checkBoxes[i].value == true });
-  //       let commonRecipes = [];
-  //       recipes.forEach(recipe => {
-  //         for (let i = 0; i < recipes.length; i++){
-  //           for (let j = 0; j < recipes2.length; j++){
-  //             if (recipes[i] == recipes2[j]) {
-  //               commonRecipes.push(recipes[i]);
-  //               return commonRecipes
-  //             }
-  //           }
-  //         }
-  //       })
-  //     }
-  //   }
-  // }
-        
-  // console.log(commonRecipes)
-
-  console.log(recipes)
-
-  printData(recipes);
+  printData(filteredRecipes);
 }
 
 
@@ -171,9 +107,19 @@ function byIngredients() {
   console.log("by ingredients search")
 
   nameDiv.style.display = "none"
+  nameDiv2.style.display = "none"
   ingredientsDiv.style.display = "block"
+  ingredientsDiv2.style.display = "block"
   caloriesDiv.style.display = "none"
+  caloriesDiv2.style.display = "none"
   cuisineDiv.style.display = "none"
+  cuisineDiv2.style.display = "none"
+
+  ingredientsDiv.addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+      fetchByIngredients()
+    }
+  })
 
   fetchByIngredients();
 }
@@ -228,9 +174,19 @@ function byCalories() {
   console.log("by calories search")
 
   nameDiv.style.display = "none"
+  nameDiv2.style.display = "none"
   ingredientsDiv.style.display = "none"
+  ingredientsDiv2.style.display = "none"
   caloriesDiv.style.display = "block"
+  caloriesDiv2.style.display = "block"
   cuisineDiv.style.display = "none"
+  cuisineDiv2.style.display = "none"
+
+  caloriesDiv.addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+      fetchByCalories();
+    }
+  })
 
   fetchByCalories();
 }
@@ -285,9 +241,20 @@ function byCuisine() {
   console.log("by cuisine search")
 
   nameDiv.style.display = "none"
+  nameDiv2.style.display = "none"
   ingredientsDiv.style.display = "none"
+  ingredientsDiv2.style.display = "none"
   caloriesDiv.style.display = "none"
+  caloriesDiv2.style.display = "none"
   cuisineDiv.style.display = "block"
+  cuisineDiv2.style.display = "block"
+
+  cuisineDiv.addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+      fetchByCuisine();
+    }
+  })
+
 
   fetchByCuisine();
 }
@@ -337,50 +304,15 @@ function fetchByCuisine() {
 
 ////// printData
 
-function printData(info) {
-    let recipeDiv = document.getElementById("dataT");
-    recipeDiv.innerText = "";
-    let recipes = info
-  
-  for (let i = 0; i < recipes.length; i++) {
-    let recipeArr = recipes[i].title.split(/[ ,]+/);
-    recipeArr.push(recipes[i].id);
-    let recipeString = "https://spoonacular.com/" + recipeArr.join("-");
-    let recipeCard = document.createElement("div");
-    recipeCard.classList.add("card");
-    recipeCard.setAttribute("style", "width: 18rem; border: 2px solid black;");
-
-    let img = document.createElement("img");
-    img.setAttribute("src", recipes[i].image);
-    img.setAttribute("alt", recipes[i].title);
-    img.classList.add("img-card-top");
-
-    let cardBody = document.createElement("div");
-    cardBody.classList.add("card-body");
-
-    let h1 = document.createElement("h1");
-    h1.classList.add("card-title");
-    h1.innerText = recipes[i].title;
-
-    let a = document.createElement("a");
-    a.setAttribute("href", recipeString);
-    a.classList.add("stretched-link");
-
-    recipeCard.appendChild(img);
-    recipeCard.appendChild(cardBody);
-    cardBody.appendChild(h1);
-    cardBody.appendChild(a);
-    recipeDiv.appendChild(recipeCard);
-    }
-}
-
-
 // function printData(info) {
 //     let recipeDiv = document.getElementById("dataT");
 //     recipeDiv.innerText = "";
 //     let recipes = info
   
 //   for (let i = 0; i < recipes.length; i++) {
+//     let recipeArr = recipes[i].title.split(/[ ,]+/);
+//     recipeArr.push(recipes[i].id);
+//     let recipeString = "https://spoonacular.com/" + recipeArr.join("-");
 //     let recipeCard = document.createElement("div");
 //     recipeCard.classList.add("card");
 //     recipeCard.setAttribute("style", "width: 18rem; border: 2px solid black;");
@@ -398,8 +330,8 @@ function printData(info) {
 //     h1.innerText = recipes[i].title;
 
 //     let a = document.createElement("a");
-//     a.setAttribute("href", "instructions.html");
-//     a.setAttribute("onclick", printInstructions(recipes[i]));
+//     a.setAttribute("href", recipeString);
+//     a.setAttribute("target", "_black");
 //     a.classList.add("stretched-link");
 
 //     recipeCard.appendChild(img);
@@ -410,3 +342,40 @@ function printData(info) {
 //     }
 // }
 
+
+
+
+function printData(info) {
+    let recipeDiv = document.getElementById("dataT");
+    recipeDiv.innerText = "";
+    let recipes = info
+  
+  for (let i = 0; i < recipes.length; i++) {
+    let recipeCard = document.createElement("div");
+    recipeCard.classList.add("card");
+    recipeCard.setAttribute("style", "width: 18rem; border: 2px solid black;");
+
+    let img = document.createElement("img");
+    img.setAttribute("src", recipes[i].image);
+    img.setAttribute("alt", recipes[i].title);
+    img.classList.add("img-card-top");
+
+    let cardBody = document.createElement("div");
+    cardBody.classList.add("card-body");
+
+    let h1 = document.createElement("h1");
+    h1.classList.add("card-title");
+    h1.innerText = recipes[i].title;
+
+    let a = document.createElement("a");
+    a.setAttribute("href", "instructions.html?id="+ recipes[i].id);
+    a.setAttribute("target", "_black");
+    a.classList.add("stretched-link");
+
+    recipeCard.appendChild(img);
+    recipeCard.appendChild(cardBody);
+    cardBody.appendChild(h1);
+    cardBody.appendChild(a);
+    recipeDiv.appendChild(recipeCard);
+    }
+}

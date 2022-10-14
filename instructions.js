@@ -1,3 +1,16 @@
+window.onload = () => {
+
+    let id = new URLSearchParams(window.location.search).get("id")
+    let url = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${key}`;
+
+    fetch(url)
+    .then(response => response.json())
+    .then((result) => {
+      printInstructions(result);
+    })
+    .catch((error) => console.log(error));
+
+}
 
 function printInstructions(info) {
     let instructionsDiv = document.getElementById("instructions")

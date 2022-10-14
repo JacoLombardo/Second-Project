@@ -87,3 +87,52 @@ function filterByName() {
 
   // printData(recipes);
 }
+
+
+
+// filter for name
+
+  // let vegetarianRecipes = recipes.filter((recipe) => { return recipe.vegetarian === true });
+  // let veganRecipes = recipes.filter((recipe) => { return recipe.vegan === true });
+  // let glutenFreeRecipes = recipes.filter((recipe) => { return recipe.glutenFree == true });
+  // let dairyFreeRecipes = recipes.filter((recipe) => { return recipe.dairyFree == true });
+
+  // let vegetarianGFRecipes = recipes.filter((recipe) => { return recipe.vegetarian === true && recipe.glutenFree == true });
+  // let veganGFRecipes = recipes.filter((recipe) => { return recipe.vegan === true && recipe.glutenFree == true });
+  // let omnivoreGlutenFreeDairyFreerecipes = recipes.filter((recipe) => { return recipe.glutenFree == true && recipe.dairyFree == true });
+  // let vgetarianGlutenFreeDairyFreerecipes = recipes.filter((recipe) => { return recipe.vegetarian === true && recipe.glutenFree == true && recipe.dairyFree == true });
+  // let veganGlutenFreeDairyFreerecipes = recipes.filter((recipe) => { return recipe.vegan === true && recipe.glutenFree == true && recipe.dairyFree == true });
+
+
+  // if (radioOmnivore.checked == true && glutenFreeCheckbox.checked == false) {
+  //   console.log("omnivore recipes");
+  //   recipes = recipes;
+  // }
+  // if (radioOmnivore.checked == true && glutenFreeCheckbox.checked == true) {
+  //   console.log("omnivore gluten free recipes");
+  //   recipes = glutenFreeRecipes;
+  // }
+  // if (radioVegetarian.checked == true && glutenFreeCheckbox.checked == false) {
+  //   console.log("vegetarian recipes");
+  //   recipes = vegetarianRecipes;
+  // }
+  // if (radioVegetarian.checked == true && glutenFreeCheckbox.checked == true) {
+  //   console.log("vegetarian gluten free recipes");
+  //   recipes = vegetarianGFRecipes;
+  // }
+  // if (radioVegan.checked == true && glutenFreeCheckbox.checked == false) {
+  //   console.log("vegan recipes");
+  //   recipes = veganRecipes;
+  // }
+  // if (radioVegan.checked == true && glutenFreeCheckbox.checked == true) {
+  //   console.log("vegan gluten free recipes");
+  //   recipes = veganGFRecipes;
+  // }
+
+  // if (radioOmnivore.checked == true && dairyFreeCheckbox.checked == true) {
+  //   console.log("aaaaaaaaaa");
+  //   recipes = dairyFreeRecipes;
+  // }
+  
+
+  //
