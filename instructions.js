@@ -16,13 +16,14 @@ function printInstructions(info) {
     let instructionsDiv = document.getElementById("instructions")
     instructionsDiv.innerText = "";
     let instructions = info
+    console.log(instructions)
 
     // instructionsCard
   
     let instructionsCard = document.createElement("div");
     instructionsDiv.appendChild(instructionsCard);
 
-    // Title and image
+    // Title
 
     let h1 = document.createElement("h1");
     h1.classList.add("card-title");
@@ -36,11 +37,51 @@ function printInstructions(info) {
     cardBody.classList.add("card-body");
     instructionsCard.appendChild(cardBody)
 
+    let imagesDiv = document.createElement("div");
+    imagesDiv.classList.add("images-div");
+    cardBody.appendChild(imagesDiv);
+
     let img = document.createElement("img");
     img.setAttribute("src", instructions.image);
     img.setAttribute("alt", instructions.title);
     img.classList.add("img")
-    cardBody.appendChild(img);
+    imagesDiv.appendChild(img);
+
+    let diets = document.createElement("div");
+    diets.classList.add("diets");
+    imagesDiv.appendChild(diets);
+
+    if (instructions.vegetarian == true) {
+        let vegetarianIcon = document.createElement("img")
+        vegetarianIcon.setAttribute("src", "Images/vegetarian.png");
+        vegetarianIcon.setAttribute("alt", "vegetarian");
+        vegetarianIcon.classList.add("icons");
+        diets.appendChild(vegetarianIcon);
+    }
+
+    if (instructions.vegan == true) {
+        let veganIcon = document.createElement("img")
+        veganIcon.setAttribute("src", "Images/vegan.png");
+        veganIcon.setAttribute("alt", "vegan");
+        veganIcon.classList.add("icons");
+        diets.appendChild(veganIcon);
+    }
+
+    if (instructions.glutenFree == true) {
+        let glutenFreeIcon = document.createElement("img")
+        glutenFreeIcon.setAttribute("src", "Images/gluten-free.png");
+        glutenFreeIcon.setAttribute("alt", "gluten-free");
+        glutenFreeIcon.classList.add("icons");
+        diets.appendChild(glutenFreeIcon);
+    }
+
+    if (instructions.glutenFree == true) {
+        let dairyFreeIcon = document.createElement("img")
+        dairyFreeIcon.setAttribute("src", "Images/dairy-free.png");
+        dairyFreeIcon.setAttribute("alt", "dairy-free");
+        dairyFreeIcon.classList.add("icons");
+        diets.appendChild(dairyFreeIcon);
+    }
 
     // ingredients
 
@@ -83,5 +124,4 @@ function printInstructions(info) {
     enjoyText.innerText = "Enjoy your meal!"
     enjoyText.setAttribute("style", "text-align: center; font-size: 30px;")
     enjoyDiv.appendChild(enjoyText)
-
 }

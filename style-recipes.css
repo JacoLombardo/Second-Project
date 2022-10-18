@@ -140,7 +140,7 @@ h1{
 }
 
 
-.card:hover{
+a.card:hover{
     filter: brightness(110%)
 }
 
@@ -179,4 +179,11 @@ div.card.p-4.mt-3:hover{
 }
 #tooltip4:hover .tooltiptext {
     visibility: visible;
+}
+
+.favourite-icon{
+    width: 20px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
 }

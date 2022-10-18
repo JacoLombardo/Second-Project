@@ -37,3 +37,31 @@ body {
     background-color: rgba(144, 238, 144, 0.5);
     border-radius: 5px 50px 50px 50px;
 }
+
+.icons{
+    width: 50px;
+    margin: 10px;
+}
+
+.diets{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.images-div{
+    display: flex;
+    flex-direction: row;
+}
+
+@media only screen and (max-width: 600px) {
+    .card-body {
+        flex-wrap: wrap;
+    }
+    .images-div{
+        flex-wrap: wrap;
+    }
+    .diets{
+        flex-direction: row;
+    }
+}

@@ -355,6 +355,12 @@ function printData(info) {
     recipeCard.classList.add("card");
     recipeCard.setAttribute("style", "width: 18rem; border: 2px solid black;");
 
+    let imgLink = document.createElement("a");
+    imgLink.setAttribute("href", "instructions.html?id=" + recipes[i].id);
+    imgLink.classList.add("card")
+    imgLink.setAttribute("style", "border: none")
+    imgLink.setAttribute("target", "_black");
+
     let img = document.createElement("img");
     img.setAttribute("src", recipes[i].image);
     img.setAttribute("alt", recipes[i].title);
@@ -366,16 +372,34 @@ function printData(info) {
     let h1 = document.createElement("h1");
     h1.classList.add("card-title");
     h1.innerText = recipes[i].title;
+    
+    let favouriteLink = document.createElement("a")
+    favouriteLink.setAttribute("onclick", "addToFavourites(innerHTML)");
+    // favouriteLink.addEventListener("onclick", addToFavourites)
+    // favouriteLink.setAttribute("target", "_black");
 
-    let a = document.createElement("a");
-    a.setAttribute("href", "instructions.html?id="+ recipes[i].id);
-    a.setAttribute("target", "_black");
-    a.classList.add("stretched-link");
+    let favourite = document.createElement("img");
+    favourite.setAttribute("src", "Images/favourite.png");
+    favourite.setAttribute("alt", "Add to favourites!");
+    favourite.setAttribute("id", "fav")
+    favourite.classList.add("favourite-icon");
 
-    recipeCard.appendChild(img);
+    recipeCard.appendChild(imgLink);
+    imgLink.appendChild(img);
     recipeCard.appendChild(cardBody);
     cardBody.appendChild(h1);
-    cardBody.appendChild(a);
+    cardBody.appendChild(favouriteLink)
+    favouriteLink.appendChild(favourite);
     recipeDiv.appendChild(recipeCard);
     }
+}
+
+function addToFavourites(id) {
+  console.log("favourite", id)
+  // let favIcon = document.getElementById("fav");
+  // favIcon.setAttribute("src", "Images/favourited.png");
+  // localStorage.setItem("id", id);
+
+
+
 }

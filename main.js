@@ -10,6 +10,9 @@ const key3 = "aa2f0763db3344c990249fa9ac70ba3f"
 function fetchRandomRecipe() {
 
   let diet = "";
+  let diet2 = "";
+  let diet3 = "";
+  let diet4 = "";
 
   let glutenFreeCheckbox = document.getElementById("gluten-free");
     glutenFreeCheckbox.addEventListener("change", fetchRandomRecipe);
@@ -19,27 +22,23 @@ function fetchRandomRecipe() {
     radioVegetarian.addEventListener("change", fetchRandomRecipe);
   let radioVegan = document.getElementById("vegan");
     radioVegan.addEventListener("change", fetchRandomRecipe);
+  let dairyFreeCheckbox = document.getElementById("dairy-free")
+    dairyFreeCheckbox.addEventListener("change", fetchRandomRecipe);
 
-  if (radioOmnivore.checked == true && glutenFreeCheckbox.checked == false) {
-    diet = "";
+  if (glutenFreeCheckbox.checked == true) {
+    diet = "gluten free, ";
   }
-  if (radioOmnivore.checked == true && glutenFreeCheckbox.checked == true) {
-    diet = "&tags=gluten free";
+  if (radioVegetarian.checked == true) {
+    diet2 = "vegetarian, ";
   }
-  if (radioVegetarian.checked == true && glutenFreeCheckbox.checked == false) {
-    diet = "&tags=vegetarian";
+  if (radioVegan.checked == true) {
+    diet3 = "vegan, ";
   }
-  if (radioVegetarian.checked == true && glutenFreeCheckbox.checked == true) {
-    diet = "&tags=gluten free, vegetarian";
-  }
-  if (radioVegan.checked == true && glutenFreeCheckbox.checked == false) {
-    diet = "&tags=vegan";
-  }
-  if (radioVegan.checked == true && glutenFreeCheckbox.checked == true) {
-    diet = "&tags=gluten free, vegan";
+  if (dairyFreeCheckbox.checked == true) {
+    diet4 = "dairy free, ";
   }
 
-  let url = `https://api.spoonacular.com/recipes/random?apiKey=${key3}&number=1${diet}`;
+  let url = `https://api.spoonacular.com/recipes/random?apiKey=${key3}&number=1&tags=${diet}${diet2}${diet3}${diet4}`;
   fetch(url)
     .then(response => response.json())
     .then((result) => {
@@ -53,9 +52,6 @@ function printData(info) {
     let recipeDiv = document.getElementById("random-recipe");
     recipeDiv.innerHTML= ""
 
-    let recipeArr = recipes.title.split(/[ ,]+/);
-    recipeArr.push(recipes.id);
-    let recipeString = "https://spoonacular.com/" + recipeArr.join("-");
     let recipeCard = document.createElement("div");
     recipeCard.classList.add("card");
     recipeCard.setAttribute("style", "width: 25rem; border: 2px solid black;");
@@ -73,7 +69,8 @@ function printData(info) {
     h1.innerText = recipes.title;
 
     let a = document.createElement("a");
-    a.setAttribute("href", recipeString);
+    a.setAttribute("href", "instructions.html?id="+ recipes.id);
+    a.setAttribute("target", "_black");
     a.classList.add("stretched-link");
 
     recipeCard.appendChild(img);
