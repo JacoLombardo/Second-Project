@@ -70,6 +70,36 @@ body {
     color: #fff !important;
 }
 
+#name-icon {
+    background-color: rgb(51, 50, 50);
+    height: 3px;
+    width: 40px;
+    border-radius: 30px;
+}
+
+#ingredients-icon {
+    background-color: rgb(51, 50, 50);
+    height: 3px;
+    width: 70px;
+    border-radius: 30px;
+}
+
+#calories-icon {
+    background-color: rgb(51, 50, 50);
+    height: 3px;
+    width: 50px;
+    border-radius: 30px;
+}
+
+#cuisine-icon {
+    background-color: rgb(51, 50, 50);
+    height: 3px;
+    width: 45px;
+    border-radius: 30px;
+}
+
+/* cards */
+
 a:link {
     text-decoration: none
 }
@@ -94,7 +124,6 @@ a:link {
 .card-inner:hover {
     transform: scale(1.1);
 }
-
 
 .mg-text span {
     font-size: 12px;
@@ -181,9 +210,32 @@ div.card.p-4.mt-3:hover{
     visibility: visible;
 }
 
+/* favourites icon */
+
 .favourite-icon{
     width: 20px;
     position: absolute;
     right: 5px;
     bottom: 5px;
+}
+
+.tooltip-fav{
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+}
+
+#fav:hover .tooltip-fav {
+    visibility: visible;
+}
+
+.resetDiv{
+    display: flex;
+    justify-content: flex-end;
 }

@@ -57,7 +57,7 @@ p{
     align-items: center;
 }
 
-/* random recipe botton */
+/* random recipe button */
 
 div.card.p-4.mt-3 {
     background-color: lightgreen;
@@ -97,4 +97,13 @@ h1 {
 div.card.p-4.mt-3 {
     background-color: lightgreen;
 
+}
+
+/* cards */
+
+.favourite-icon {
+    width: 20px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
 }

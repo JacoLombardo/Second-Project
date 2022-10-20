@@ -1,0 +1,60 @@
+/* background */
+
+body {
+    background-image: url(Images/Marble.jpg);
+    background-size: 100%;
+}
+
+/* recipe cards */
+
+#favourite-recipes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px 20px;
+    border-top: 30px;
+}
+
+
+.card {
+    border: 7px bold black;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+
+h1 {
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+
+
+.card-title {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: larger;
+    font-weight: bold;
+}
+
+
+a.card:hover {
+    filter: brightness(110%)
+}
+
+h1.title{
+    font-size:50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    text-align: center;
+}
+
+/* reset button */
+
+.resetDiv {
+    display: flex;
+    justify-content: flex-end;
+}
+
+p{
+    align-content: center;
+    font-size: large;
+}

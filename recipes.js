@@ -1,19 +1,21 @@
-
-const key2 = "d48de0d4cb95426ca821de405f795581"
-const key = "2e5b847f2b98407ab40117f7c477691b"
+const key = "d48de0d4cb95426ca821de405f795581"
+const key2 = "2e5b847f2b98407ab40117f7c477691b"
 const key3 = "aa2f0763db3344c990249fa9ac70ba3f"
-
 
 ////// input
 
 let nameDiv = document.getElementById("by-name")
 let nameDiv2 = document.getElementById("tooltip1")
+let nameIcon = document.getElementById("name-icon")
 let ingredientsDiv = document.getElementById("by-ingredients")
 let ingredientsDiv2 = document.getElementById("tooltip2")
+let ingredientsIcon = document.getElementById("ingredients-icon")
 let caloriesDiv = document.getElementById("by-calories")
 let caloriesDiv2 = document.getElementById("tooltip3")
+let caloriesIcon = document.getElementById("calories-icon")
 let cuisineDiv = document.getElementById("by-cuisine")
 let cuisineDiv2 = document.getElementById("tooltip4")
+let cuisineIcon = document.getElementById("cuisine-icon")
 
 // by name
 
@@ -22,12 +24,16 @@ function byName() {
 
   nameDiv.style.display = "block"
   nameDiv2.style.display = "block"
+  nameIcon.style.display = "block"
   ingredientsDiv.style.display = "none"
   ingredientsDiv2.style.display = "none"
+  ingredientsIcon.style.display = "none"
   caloriesDiv.style.display = "none"
   caloriesDiv2.style.display = "none"
+  caloriesIcon.style.display = "none"
   cuisineDiv.style.display = "none"
   cuisineDiv2.style.display = "none"
+  cuisineIcon.style.display = "none"
 
   nameDiv.addEventListener("keyup", (event) => {
     if (event.key === "Enter") {
@@ -108,12 +114,16 @@ function byIngredients() {
 
   nameDiv.style.display = "none"
   nameDiv2.style.display = "none"
+  nameIcon.style.display = "none"
   ingredientsDiv.style.display = "block"
   ingredientsDiv2.style.display = "block"
+  ingredientsIcon.style.display = "block"
   caloriesDiv.style.display = "none"
   caloriesDiv2.style.display = "none"
+  caloriesIcon.style.display = "none"
   cuisineDiv.style.display = "none"
   cuisineDiv2.style.display = "none"
+  cuisineIcon.style.display = "none"
 
   ingredientsDiv.addEventListener("keyup", (event) => {
     if (event.key === "Enter") {
@@ -156,7 +166,7 @@ function fetchByIngredients() {
     diet4 = "dairy free, ";
   }
 
-  let url = `https://api.spoonacular.com/recipes/random?apiKey=${key}&number=10&tags=${diet}${diet2}${diet3}${diet4}${input}`;
+  let url = `https://api.spoonacular.com/recipes/random?apiKey=${key}&number=100&tags=${diet}${diet2}${diet3}${diet4}${input}`;
   fetch(url)
     .then(response => response.json())
     .then((result) => {
@@ -175,12 +185,16 @@ function byCalories() {
 
   nameDiv.style.display = "none"
   nameDiv2.style.display = "none"
+  nameIcon.style.display = "none"
   ingredientsDiv.style.display = "none"
   ingredientsDiv2.style.display = "none"
+  ingredientsIcon.style.display = "none"
   caloriesDiv.style.display = "block"
   caloriesDiv2.style.display = "block"
+  caloriesIcon.style.display = "block"
   cuisineDiv.style.display = "none"
   cuisineDiv2.style.display = "none"
+  cuisineIcon.style.display = "none"
 
   caloriesDiv.addEventListener("keyup", (event) => {
     if (event.key === "Enter") {
@@ -223,7 +237,7 @@ function fetchByCalories() {
     diet4 = "dairy free, ";
   }
 
-  let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${key}&maxCalories=${input}&number=5&diet=${diet}${diet2}${diet3}${diet4}`;
+  let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${key}&maxCalories=${input}&number=100&diet=${diet}${diet2}${diet3}${diet4}`;
   fetch(url)
     .then(response => response.json())
     .then((result) => {
@@ -242,12 +256,16 @@ function byCuisine() {
 
   nameDiv.style.display = "none"
   nameDiv2.style.display = "none"
+  nameIcon.style.display = "none"
   ingredientsDiv.style.display = "none"
   ingredientsDiv2.style.display = "none"
+  ingredientsIcon.style.display = "none"
   caloriesDiv.style.display = "none"
   caloriesDiv2.style.display = "none"
+  caloriesIcon.style.display = "none"
   cuisineDiv.style.display = "block"
   cuisineDiv2.style.display = "block"
+  cuisineIcon.style.display = "block"
 
   cuisineDiv.addEventListener("keyup", (event) => {
     if (event.key === "Enter") {
@@ -291,7 +309,7 @@ function fetchByCuisine() {
     diet4 = "dairy free, ";
   }
 
-  let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${key}&cuisine=${input}&number=5&diet=${diet}${diet2}${diet3}${diet4}`;
+  let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${key}&cuisine=${input}&number=100&diet=${diet}${diet2}${diet3}${diet4}`;
   fetch(url)
     .then(response => response.json())
     .then((result) => {
@@ -304,51 +322,9 @@ function fetchByCuisine() {
 
 ////// printData
 
-// function printData(info) {
-//     let recipeDiv = document.getElementById("dataT");
-//     recipeDiv.innerText = "";
-//     let recipes = info
-  
-//   for (let i = 0; i < recipes.length; i++) {
-//     let recipeArr = recipes[i].title.split(/[ ,]+/);
-//     recipeArr.push(recipes[i].id);
-//     let recipeString = "https://spoonacular.com/" + recipeArr.join("-");
-//     let recipeCard = document.createElement("div");
-//     recipeCard.classList.add("card");
-//     recipeCard.setAttribute("style", "width: 18rem; border: 2px solid black;");
-
-//     let img = document.createElement("img");
-//     img.setAttribute("src", recipes[i].image);
-//     img.setAttribute("alt", recipes[i].title);
-//     img.classList.add("img-card-top");
-
-//     let cardBody = document.createElement("div");
-//     cardBody.classList.add("card-body");
-
-//     let h1 = document.createElement("h1");
-//     h1.classList.add("card-title");
-//     h1.innerText = recipes[i].title;
-
-//     let a = document.createElement("a");
-//     a.setAttribute("href", recipeString);
-//     a.setAttribute("target", "_black");
-//     a.classList.add("stretched-link");
-
-//     recipeCard.appendChild(img);
-//     recipeCard.appendChild(cardBody);
-//     cardBody.appendChild(h1);
-//     cardBody.appendChild(a);
-//     recipeDiv.appendChild(recipeCard);
-//     }
-// }
-
-
-
-
-function printData(info) {
+function printData(recipes) {
     let recipeDiv = document.getElementById("dataT");
     recipeDiv.innerText = "";
-    let recipes = info
   
   for (let i = 0; i < recipes.length; i++) {
     let recipeCard = document.createElement("div");
@@ -374,16 +350,24 @@ function printData(info) {
     h1.innerText = recipes[i].title;
     
     let favouriteLink = document.createElement("a")
-    favouriteLink.setAttribute("onclick", "addToFavourites(innerHTML)");
-    // favouriteLink.addEventListener("onclick", addToFavourites)
-    // favouriteLink.setAttribute("target", "_black");
+    favouriteLink.addEventListener("click", function(){
+      addToFavourites(recipes[i].id)
+    });
 
     let favourite = document.createElement("img");
-    favourite.setAttribute("src", "Images/favourite.png");
+    favourite.setAttribute("src", "Images/favourite.png");    
     favourite.setAttribute("alt", "Add to favourites!");
-    favourite.setAttribute("id", "fav")
+    favourite.setAttribute("id", recipes[i].id);
     favourite.classList.add("favourite-icon");
 
+    let favourites = JSON.parse(localStorage.getItem("Favourites"));
+    for (let j = 0; j < favourites.length; j++){
+      if (recipes[i].id == favourites[j]) {
+        favourite.removeAttribute("src", "Images/favourite.png");
+        favourite.setAttribute("src", "Images/favourited.png");
+
+      }}
+  
     recipeCard.appendChild(imgLink);
     imgLink.appendChild(img);
     recipeCard.appendChild(cardBody);
@@ -394,12 +378,29 @@ function printData(info) {
     }
 }
 
+// favourites
+
 function addToFavourites(id) {
   console.log("favourite", id)
-  // let favIcon = document.getElementById("fav");
-  // favIcon.setAttribute("src", "Images/favourited.png");
-  // localStorage.setItem("id", id);
+  let favIcon = document.getElementById(id);
+  favIcon.removeAttribute("src", "Images/favourite.png");
+  favIcon.setAttribute("src", "Images/favourited.png");
 
+  let favourites = JSON.parse(localStorage.getItem("Favourites"));
+  favourites.push(id);
+  localStorage.setItem("Favourites", JSON.stringify(favourites));
+}
 
+function resetFavourites() {
+  console.log("resetting...")
 
+  let toChange = JSON.parse(localStorage.getItem("Favourites"));
+  for (let i = 0; i < toChange.length; i++){
+    let favourited = document.getElementById(toChange[i])
+    favourited.removeAttribute("src", "Images/favourited.png")
+    favourited.setAttribute("src", "Images/favourite.png")
+  }
+
+  let favouritesBlank = []
+  localStorage.setItem("Favourites", JSON.stringify(favouritesBlank))
 }

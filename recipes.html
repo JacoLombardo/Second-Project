@@ -32,8 +32,11 @@
             </ul>
         </div>
     </nav>
+    <br>
+    <div class="resetDiv"><button onclick="resetFavourites()" class="buttonFav" style="background-color: green;"><p style="color: white;">Reset Favourites</p></button></div>
+    <br>
 
-    <div class="container mt-4">
+    <div class="container mt-4" >
         <div class="row d-flex justify-content-center">
             <div class="col-md-9">
                 <div class="card p-4 mt-3">
@@ -64,24 +67,28 @@
                             <div onclick="byName()" class="card-inner p-3 d-flex flex-column align-items-center" style="background-color: rgba(0, 0, 0, 0);"> <img
                                     src="Images/recipe-book.png" width="50">
                                 <div class="text-center mg-text"> <span class="mg-text">By name</span> </div>
+                                <div id="name-icon" class="class"></div>
                             </div>
                         </div>
                         <div class="col-md-2" style="background-color: rgba(0, 0, 0, 0);">
                             <div onclick="byIngredients()" class="card-inner p-3 d-flex flex-column align-items-center" style="background-color: rgba(0, 0, 0, 0);"> <img
                                     src="Images/ingredients.png" width="50">
                                 <div class="text-center mg-text"> <span class="mg-text">By ingredients</span> </div>
+                                <div id="ingredients-icon"></div>
                             </div>
                         </div>
                         <div class="col-md-2" style="background-color: rgba(0, 0, 0, 0);">
                             <div onclick="byCalories()" class="card-inner p-3 d-flex flex-column align-items-center" style="background-color: rgba(0, 0, 0, 0);"> <img
                                     src="Images/calories.png" width="50">
                                 <div class="text-center mg-text"> <span class="mg-text">By calories</span> </div>
+                                <div id="calories-icon"></div>
                             </div>
                         </div>
                         <div class="col-md-2" style="background-color: rgba(0, 0, 0, 0);">
                             <div onclick="byCuisine()" class="card-inner p-3 d-flex flex-column align-items-center" style="background-color: rgba(0, 0, 0, 0);"> <img
                                     src="Images/cuisine.png" width="50">
                                 <div class="text-center mg-text"> <span class="mg-text">By cuisine</span> </div>
+                                <div id="cuisine-icon"></div>
                             </div>
                         </div>
                         <div class="diet" style="background-color: rgba(0, 0, 0, 0);">

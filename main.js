@@ -50,11 +50,17 @@ function fetchRandomRecipe() {
 function printData(info) {
   let recipes = info.recipes[0];
     let recipeDiv = document.getElementById("random-recipe");
-    recipeDiv.innerHTML= ""
-
+    recipeDiv.innerText = "";
+  
     let recipeCard = document.createElement("div");
     recipeCard.classList.add("card");
-    recipeCard.setAttribute("style", "width: 25rem; border: 2px solid black;");
+    recipeCard.setAttribute("style", "width: 18rem; border: 2px solid black;");
+
+    let imgLink = document.createElement("a");
+    imgLink.setAttribute("href", "instructions.html?id=" + recipes.id);
+    imgLink.classList.add("card")
+    imgLink.setAttribute("style", "border: none")
+    imgLink.setAttribute("target", "_black");
 
     let img = document.createElement("img");
     img.setAttribute("src", recipes.image);
@@ -67,15 +73,43 @@ function printData(info) {
     let h1 = document.createElement("h1");
     h1.classList.add("card-title");
     h1.innerText = recipes.title;
+    
+    let favouriteLink = document.createElement("a")
+    favouriteLink.addEventListener("click", function(){
+      addToFavourites(recipes.id)
+    });
 
-    let a = document.createElement("a");
-    a.setAttribute("href", "instructions.html?id="+ recipes.id);
-    a.setAttribute("target", "_black");
-    a.classList.add("stretched-link");
+    let favourite = document.createElement("img");
+    favourite.setAttribute("src", "Images/favourite.png");    
+    favourite.setAttribute("alt", "Add to favourites!");
+    favourite.setAttribute("id", recipes.id);
+    favourite.classList.add("favourite-icon");
 
-    recipeCard.appendChild(img);
+    let favourites = JSON.parse(localStorage.getItem("Favourites"));
+    for (let j = 0; j < favourites.length; j++){
+      if (recipes.id == favourites[j]) {
+        favourite.removeAttribute("src", "Images/favourite.png");
+        favourite.setAttribute("src", "Images/favourited.png");
+
+      }}
+  
+    recipeCard.appendChild(imgLink);
+    imgLink.appendChild(img);
     recipeCard.appendChild(cardBody);
     cardBody.appendChild(h1);
-    cardBody.appendChild(a);
+    cardBody.appendChild(favouriteLink)
+    favouriteLink.appendChild(favourite);
     recipeDiv.appendChild(recipeCard);
+}
+
+
+function addToFavourites(id) {
+  console.log("favourite", id)
+  let favIcon = document.getElementById(id);
+  favIcon.removeAttribute("src", "Images/favourite.png");
+  favIcon.setAttribute("src", "Images/favourited.png");
+
+  let favourites = JSON.parse(localStorage.getItem("Favourites"));
+  favourites.push(id);
+  localStorage.setItem("Favourites", JSON.stringify(favourites));
 }
