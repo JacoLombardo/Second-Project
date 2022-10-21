@@ -87,9 +87,9 @@ function printData(info) {
 
     let favourites = JSON.parse(localStorage.getItem("Favourites"));
     for (let j = 0; j < favourites.length; j++){
-      if (recipes.id == favourites[j]) {
-        favourite.removeAttribute("src", "Images/favourite.png");
-        favourite.setAttribute("src", "Images/favourited.png");
+      if (recipes.id === favourites[j]) {
+        favourite.removeAttribute("src", "../Images/favourite.png");
+        favourite.setAttribute("src", "../Images/favourited.png");
 
       }}
   
@@ -106,8 +106,8 @@ function printData(info) {
 function addToFavourites(id) {
   console.log("favourite", id)
   let favIcon = document.getElementById(id);
-  favIcon.removeAttribute("src", "Images/favourite.png");
-  favIcon.setAttribute("src", "Images/favourited.png");
+  favIcon.removeAttribute("src", "../Images/favourite.png");
+  favIcon.setAttribute("src", "../Images/favourited.png");
 
   let favourites = JSON.parse(localStorage.getItem("Favourites"));
   favourites.push(id);

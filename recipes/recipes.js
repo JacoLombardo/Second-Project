@@ -75,27 +75,27 @@ function filterByName() {
 
   let filteredRecipes = ""
 
-  if (radioButtonValue == "omnivore") {
+  if (radioButtonValue === "omnivore") {
     filteredRecipes = recipes
-  } else if (radioButtonValue == "vegetarian") {
-    filteredRecipes = recipes.filter((recipe) => { return recipe.vegetarian == true });
+  } else if (radioButtonValue === "vegetarian") {
+    filteredRecipes = recipes.filter((recipe) => { return recipe.vegetarian === true });
   } else {
-    filteredRecipes = recipes.filter((recipe) => { return recipe.vegan == true });
+    filteredRecipes = recipes.filter((recipe) => { return recipe.vegan === true });
   }
 
-  if (dairyFreeCheckbox.checked == true || glutenFreeCheckbox.checked == true) {
+  if (dairyFreeCheckbox.checked === true || glutenFreeCheckbox.checked === true) {
     let filteredRecipes2 = "";
-    if (dairyFreeCheckbox.checked == false && glutenFreeCheckbox.checked == true) {
-      filteredRecipes2 = recipes.filter((recipe) => { return recipe.glutenFree == true });
-    } else if (dairyFreeCheckbox.checked == true && glutenFreeCheckbox.checked == false) {
-      filteredRecipes2 = recipes.filter((recipe) => { return recipe.dairyFree == true });
+    if (dairyFreeCheckbox.checked === false && glutenFreeCheckbox.checked === true) {
+      filteredRecipes2 = recipes.filter((recipe) => { return recipe.glutenFree === true });
+    } else if (dairyFreeCheckbox.checked === true && glutenFreeCheckbox.checked === false) {
+      filteredRecipes2 = recipes.filter((recipe) => { return recipe.dairyFree === true });
     } else {
-      filteredRecipes2 = recipes.filter((recipe) => { return recipe.glutenFree == true && recipe.dairyFree == true });
+      filteredRecipes2 = recipes.filter((recipe) => { return recipe.glutenFree === true && recipe.dairyFree === true });
     }
     let commonRecipes = [];
     for (let i = 0; i < filteredRecipes.length; i++) {
       for (let j = 0; j < filteredRecipes2.length; j++) {
-        if (filteredRecipes[i].id == filteredRecipes2[j].id) {
+        if (filteredRecipes[i].id === filteredRecipes2[j].id) {
           commonRecipes.push(filteredRecipes[i]);
         }
       }
@@ -153,16 +153,16 @@ function fetchByIngredients() {
   let radioVegan = document.getElementById("Vegan")
     radioVegan.addEventListener("change", fetchByIngredients);
 
-  if (glutenFreeCheckbox.checked == true) {
+  if (glutenFreeCheckbox.checked === true) {
     diet = "gluten free, ";
   }
-  if (radioVegetarian.checked == true) {
+  if (radioVegetarian.checked === true) {
     diet2 = "vegetarian, ";
   }
-  if (radioVegan.checked == true) {
+  if (radioVegan.checked === true) {
     diet3 = "vegan, ";
   }
-  if (dairyFreeCheckbox.checked == true) {
+  if (dairyFreeCheckbox.checked === true) {
     diet4 = "dairy free, ";
   }
 
@@ -224,16 +224,16 @@ function fetchByCalories() {
   let radioVegan = document.getElementById("Vegan")
     radioVegan.addEventListener("change", fetchByCalories);
 
-  if (glutenFreeCheckbox.checked == true) {
+  if (glutenFreeCheckbox.checked === true) {
     diet = "gluten free, ";
   }
-  if (radioVegetarian.checked == true) {
+  if (radioVegetarian.checked === true) {
     diet2 = "vegetarian, ";
   }
-  if (radioVegan.checked == true) {
+  if (radioVegan.checked === true) {
     diet3 = "vegan, ";
   }
-  if (dairyFreeCheckbox.checked == true) {
+  if (dairyFreeCheckbox.checked === true) {
     diet4 = "dairy free, ";
   }
 
@@ -296,16 +296,16 @@ function fetchByCuisine() {
   let radioVegan = document.getElementById("Vegan");
     radioVegan.addEventListener("change", fetchByCuisine);
 
-  if (glutenFreeCheckbox.checked == true) {
+  if (glutenFreeCheckbox.checked === true) {
     diet = "gluten free, ";
   }
-  if (radioVegetarian.checked == true) {
+  if (radioVegetarian.checked === true) {
     diet2 = "vegetarian, ";
   }
-  if (radioVegan.checked == true) {
+  if (radioVegan.checked === true) {
     diet3 = "vegan, ";
   }
-  if (dairyFreeCheckbox.checked == true) {
+  if (dairyFreeCheckbox.checked === true) {
     diet4 = "dairy free, ";
   }
 
@@ -332,7 +332,7 @@ function printData(recipes) {
     recipeCard.setAttribute("style", "width: 18rem; border: 2px solid black;");
 
     let imgLink = document.createElement("a");
-    imgLink.setAttribute("href", "instructions.html?id=" + recipes[i].id);
+    imgLink.setAttribute("href", "../instructions/instructions.html?id=" + recipes[i].id);
     imgLink.classList.add("card")
     imgLink.setAttribute("style", "border: none")
     imgLink.setAttribute("target", "_black");
@@ -355,7 +355,7 @@ function printData(recipes) {
     });
 
     let favourite = document.createElement("img");
-    favourite.setAttribute("src", "Images/favourite.png");    
+    favourite.setAttribute("src", "../Images/favourite.png");    
     favourite.setAttribute("alt", "Add to favourites!");
     favourite.setAttribute("id", recipes[i].id);
     favourite.classList.add("favourite-icon");
@@ -363,8 +363,8 @@ function printData(recipes) {
     let favourites = JSON.parse(localStorage.getItem("Favourites"));
     for (let j = 0; j < favourites.length; j++){
       if (recipes[i].id == favourites[j]) {
-        favourite.removeAttribute("src", "Images/favourite.png");
-        favourite.setAttribute("src", "Images/favourited.png");
+        favourite.removeAttribute("src", "../Images/favourite.png");
+        favourite.setAttribute("src", "../Images/favourited.png");
 
       }}
   
@@ -383,8 +383,8 @@ function printData(recipes) {
 function addToFavourites(id) {
   console.log("favourite", id)
   let favIcon = document.getElementById(id);
-  favIcon.removeAttribute("src", "Images/favourite.png");
-  favIcon.setAttribute("src", "Images/favourited.png");
+  favIcon.removeAttribute("src", "../Images/favourite.png");
+  favIcon.setAttribute("src", "../Images/favourited.png");
 
   let favourites = JSON.parse(localStorage.getItem("Favourites"));
   favourites.push(id);
@@ -397,8 +397,11 @@ function resetFavourites() {
   let toChange = JSON.parse(localStorage.getItem("Favourites"));
   for (let i = 0; i < toChange.length; i++){
     let favourited = document.getElementById(toChange[i])
-    favourited.removeAttribute("src", "Images/favourited.png")
-    favourited.setAttribute("src", "Images/favourite.png")
+    if (favourited === null) {
+    } else {
+      favourited.removeAttribute("src", "../Images/favourited.png")
+      favourited.setAttribute("src", "../Images/favourite.png")
+    }
   }
 
   let favouritesBlank = []

@@ -51,7 +51,7 @@ function printInstructions(info) {
     diets.classList.add("diets");
     imagesDiv.appendChild(diets);
 
-    if (instructions.vegetarian == true) {
+    if (instructions.vegetarian === true) {
         let vegetarianIcon = document.createElement("img")
         vegetarianIcon.setAttribute("src", "Images/vegetarian.png");
         vegetarianIcon.setAttribute("alt", "vegetarian");
@@ -59,7 +59,7 @@ function printInstructions(info) {
         diets.appendChild(vegetarianIcon);
     }
 
-    if (instructions.vegan == true) {
+    if (instructions.vegan === true) {
         let veganIcon = document.createElement("img")
         veganIcon.setAttribute("src", "Images/vegan.png");
         veganIcon.setAttribute("alt", "vegan");
@@ -67,7 +67,7 @@ function printInstructions(info) {
         diets.appendChild(veganIcon);
     }
 
-    if (instructions.glutenFree == true) {
+    if (instructions.glutenFree === true) {
         let glutenFreeIcon = document.createElement("img")
         glutenFreeIcon.setAttribute("src", "Images/gluten-free.png");
         glutenFreeIcon.setAttribute("alt", "gluten-free");
@@ -75,7 +75,7 @@ function printInstructions(info) {
         diets.appendChild(glutenFreeIcon);
     }
 
-    if (instructions.glutenFree == true) {
+    if (instructions.glutenFree === true) {
         let dairyFreeIcon = document.createElement("img")
         dairyFreeIcon.setAttribute("src", "Images/dairy-free.png");
         dairyFreeIcon.setAttribute("alt", "dairy-free");
